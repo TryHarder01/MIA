@@ -1,11 +1,11 @@
 FROM node:19-slim
 
-COPY package.json /app/
-WORKDIR /app
+COPY package.json /api/
+WORKDIR /api
 RUN npm install
 #TODO: what about files for ssl?
 
-COPY api.js /app/
+COPY api.js /api/
 
 
 CMD [ "node", "api.js" ]
