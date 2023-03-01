@@ -1,0 +1,14 @@
+FROM node:19-slim
+
+COPY package.json /app/
+WORKDIR /app
+RUN npm install
+#TODO: what about files for ssl?
+
+COPY api.js /app/
+
+
+CMD [ "node", "api.js" ]
+
+# docker build -t api .
+# docker run -it api bash

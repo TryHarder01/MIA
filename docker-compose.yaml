@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: dockerfile
+    ports:
+      # - "3001:3001"
+      - 3030:3001
+    environment:
+      OPENAI_API_KEY: $OPENAI_API_KEY
+  ui:
+    build:
+      context: ./ui
+      dockerfile: dockerfile
+    ports:
+      # - "3000:3000"
+      - 3000:3000
+    environment:
+      REACT_APP_API_PORT: 3030
+      REACT_APP_RUN_PROD: true

@@ -1,0 +1,16 @@
+FROM node:19-slim
+
+COPY package.json /app/
+WORKDIR /app/
+RUN npm install
+RUN npm install -g serve
+
+COPY src/  /app/src
+COPY public /app/public
+
+RUN npm run build
+
+CMD npm start
+# CMD serve -s /app/build/
+
+# docker build -t ui .

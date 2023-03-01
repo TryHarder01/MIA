@@ -1,0 +1,25 @@
+to start run `node api.js`
+
+# todos
+
+    - [ ] foo
+
+- [x] add static api response
+- [ ] forward data response
+- [ ] make sure api key is read
+
+
+# SSL
+https://adamtheautomator.com/https-nodejs/
+
+
+# nocks
+
+curl -XPOST localhost:3001/mock \
+  -H "Content-Type: application/json" \
+  -d '{
+  "companyName": "LulAid",
+  "companyDesc": "we make soft drinks",
+  "productDesc": "soft drink that helps you sleep",
+  "targetAudience": "teenagers"
+   }'
