@@ -7,7 +7,7 @@ RUN npm install
 
 COPY api.js /api/
 
-
+EXPOSE 3001
 CMD [ "node", "api.js" ]
 
 #  docker build -t api .
