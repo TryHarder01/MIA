@@ -12,4 +12,3 @@ CMD [ "node", "api.js" ]
 
 #  docker build -t api .
 # docker run -it api bash
-# new
