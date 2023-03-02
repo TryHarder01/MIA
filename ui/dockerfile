@@ -13,4 +13,4 @@ RUN npm run build
 CMD npm start
 # CMD serve -s /app/build/
 
-# docker build -t ui .
+#  docker build -t ui .

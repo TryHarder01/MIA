@@ -10,5 +10,5 @@ COPY api.js /api/
 
 CMD [ "node", "api.js" ]
 
-# docker build -t api .
+#  docker build -t api .
 # docker run -it api bash
