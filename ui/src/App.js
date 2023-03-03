@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 
 import MIAForm from './components/MIAForm.js'
 import RightSide from './components/RightSide'
-
+import { NavigationProvider } from './context/context'
 /*
 
 */
@@ -22,6 +22,7 @@ export default function App () {
     y: 0,
     component: 'app.js'
   })
+
   console.log('App.js rendered')
   // const {
   //   register,
@@ -37,7 +38,8 @@ export default function App () {
 
   /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
   return (
-    <div className="App">
+    <div className="App"> 
+    <NavigationProvider>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Marketing Ideation Assistant</h1>
@@ -48,8 +50,8 @@ export default function App () {
         <div className="row">
           <div className="col">
             <MIAForm
-              data={data}
-              updateData={setData}
+              // data={data}
+              // updateData={setData}
               disabledState={isDisabled}
               setIsDisabled={setIsDisabled}
             />
@@ -66,6 +68,7 @@ export default function App () {
           {/* {this.data.name ? "link"  : "ee"} */}
         </div>
       </div>
+      </NavigationProvider>  
     </div>
   )
 }

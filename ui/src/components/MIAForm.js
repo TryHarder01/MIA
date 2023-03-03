@@ -1,7 +1,8 @@
 /* eslint-disable */
 import { useForm } from "react-hook-form";
-import React from "react";
+import React, {useEffect } from "react";
 import apiRequester from "./apiRequester";
+import { useNavigationContext } from '../context/context'
 
 const MIAForm = (props) => {
   const {
@@ -12,34 +13,36 @@ const MIAForm = (props) => {
   } = useForm();
 
 
+  const { data, setData
+} = useNavigationContext();
+
+
   const handleApi = async () => {
     props.setIsDisabled(true);
-    apiRequester(props.data, props.updateData, props.setIsDisabled);
+    apiRequester(data, setData, props.setIsDisabled);
   };
 
   const submitClickHandler = (formData) => {
     console.log(
-      `submitClickHandler ` +
+      `submitClickHandler form` +
       JSON.stringify(formData)
     );
-    props.updateData({ ...props.data, component: "miaform.js" })
-    props.updateData({
-      ...formData,
-      ...props.data, y: 21
-    });
-    console.log(`submitClickHandler after update ` + JSON.stringify(props.data));
-    handleApi().then(() => { }).finally(() => {console.log("handleApi FINISHED") });
+
+    console.log(setData);
+    setData({l:32});
+    // setData({
+    //   ...formData,
+    //   ...data, y: 21
+    // });
+
+    console.log(`submitClickHandler after update ` + JSON.stringify(data));
+    // handleApi() //.then(() => { }).finally(() => {console.log("handleApi FINISHED") });
   };
 
-  const changeClickHandler = (formData) => {
-    console.log(`changeClickHandler ` + formData);
-    // props.updateData({ ...formData, ...props.data, y: 1 });
-    // console.log(`changeClickHandler after update ` + JSON.stringify(props.data));
+  useEffect(() => { console.log("MIAForm rendered") }, [data])
 
-  };
   return (
     <form
-      // onChange={handleSubmit(changeClickHandler)}
       onSubmit={handleSubmit(submitClickHandler)}
     >
       <div>
